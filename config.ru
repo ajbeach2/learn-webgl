@@ -1,3 +1,3 @@
 require './application.rb'
 
-run Beach
+run App

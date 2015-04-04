@@ -3,13 +3,14 @@ require 'bundler'
 
 Bundler.require
 
-class Beach < Sinatra::Base
+class App < Sinatra::Base
 
   set :root, File.dirname(__FILE__)
-  # set :protection, true
+  set :protection, true
 
   register Sinatra::AssetPack
   register Sinatra::Export
+  helpers Sinatra::ContentFor
 
   assets do
     serve '/js',     from: 'app/js'        # Default
@@ -33,13 +34,18 @@ class Beach < Sinatra::Base
     css_compression :sass
   end
 
-  get '/hello_canvas' do
-    haml :'pages/hello_canvas'
+  error RuntimeError do
+    status 500
+    "A RuntimeError occured"
   end
 
-  get '/:path' do
-    status 404
-    "404"
+  get '/:page' do
+    begin
+      haml "pages/#{params['page']}".to_sym
+    rescue Errno::ENOENT
+      status 404
+      "404"
+    end
   end
 
   run! if app_file == $0

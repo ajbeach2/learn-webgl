@@ -1,5 +1,5 @@
 APP_FILE  = 'application.rb'
-APP_CLASS = 'Beach'
+APP_CLASS = 'App'
 
 require 'sinatra/assetpack/rake'
 require 'rake/testtask'
