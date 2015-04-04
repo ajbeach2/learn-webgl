@@ -1,0 +1,12 @@
+source 'https://rubygems.org'
+ruby '2.2.0'
+
+gem 'haml'
+gem 'rake'
+gem 'sinatra'
+gem 'rack'
+gem 'pry'
+gem 'sinatra-assetpack', :git => 'git@github.com:rstacruz/sinatra-assetpack.git'
+gem 'sass'
+gem 'uglifier'
+gem 'sinatra-export'
