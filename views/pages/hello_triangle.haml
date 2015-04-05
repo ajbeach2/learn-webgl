@@ -1,0 +1,4 @@
+- content_for(:title) {"Hello Triangle"}
+%body{:style => "margin: 0px", :onload => "main()"}
+  %canvas{:id => 'webgl', :width => 400, :height => 400}
+  %script{:src => 'js/hello-triangle.js'}
