@@ -1,0 +1,4 @@
+- content_for(:title) {"Colored Points"}
+%body{:style => "margin: 0px", :onload => "main()"}
+  %canvas{:id => 'webgl', :width => 400, :height => 400}
+  %script{:src => 'js/colored-points.js'}
